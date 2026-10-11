@@ -1,0 +1,18 @@
+REDE APOIO — NETLIFY + OPENAI
+
+Arquivos:
+- public/index.html: site Rede Apoio (chat ajustado para chamar a função Netlify)
+- netlify/functions/chat.mjs: servidor seguro para consultar a API da OpenAI
+- netlify.toml: configurações de publicação
+
+IMPORTANTE: não publique apenas a pasta public por arrastar-e-soltar se quiser o chat. A função precisa ser implantada junto com o site.
+
+Fluxo recomendado pelo celular:
+1. Crie um repositório no GitHub e envie TODOS os arquivos e pastas deste projeto mantendo a estrutura.
+2. No Netlify, escolha Add new site / Import an existing project e conecte o repositório GitHub.
+3. Configure Build command vazio (ou nenhum) e Publish directory como public; netlify.toml já declara isso.
+4. Em Project configuration / Environment variables, crie OPENAI_API_KEY com sua chave secreta da API OpenAI e garanta que o escopo inclua Functions.
+5. Faça o deploy/redeploy depois de configurar a variável.
+6. Abra o endereço HTTPS do site e teste o chat.
+
+Nunca coloque a chave no HTML, no GitHub, em mensagens ou em capturas de tela. A API pode ter cobrança separada do ChatGPT. A função limita o histórico a 10 mensagens e 2.000 caracteres por mensagem, mas para um site público é recomendável adicionar proteção contra abuso/limites de uso.
